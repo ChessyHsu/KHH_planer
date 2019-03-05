@@ -115,25 +115,25 @@ class WorkTimePrediction():
         # print(pred_time)
         return pred_time
 
-df = pd.read_excel('C:/Users/user/Desktop/KHH-master/KHH-master/code/pyscript/data/cher1218.xlsx')
-print(df)
+# df = pd.read_excel('C:/Users/user/Desktop/KHH-master/KHH-master/code/pyscript/data/cher1218.xlsx')
+# print(df)
 
-result=open("predict_y2.csv", 'w')
-title=["sailing_status", "port", "tug_cnt", "total_weight", "weight_level", "dist", "wind", "park", \
-                                  "reverse", "month", "weekday", "hour", "avg_hp"]
+# result=open("predict_y2.csv", 'w')
+# title=["sailing_status", "port", "tug_cnt", "total_weight", "weight_level", "dist", "wind", "park", \
+#                                   "reverse", "month", "weekday", "hour", "avg_hp"]
 
-for i in range(len(df)):
-    print(i)
-    print("---------------------")
-    row=[]
-    for t in title:
-        row.append(df.loc[i,t])
-    df1=pd.DataFrame([row],columns=list(title))
-    wt = WorkTimePrediction(df1)
-    y2=wt.run()
-    print(y2[0])
-    result.write(str(y2[0])+"\n")
-result.close()
+# for i in range(len(df)):
+#     print(i)
+#     print("---------------------")
+#     row=[]
+#     for t in title:
+#         row.append(df.loc[i,t])
+#     df1=pd.DataFrame([row],columns=list(title))
+#     wt = WorkTimePrediction(df1)
+#     y2=wt.run()
+#     print(y2[0])
+#     result.write(str(y2[0])+"\n")
+# result.close()
 
 # df = pd.DataFrame([["T",1,1,27968,4,1502.6, 1,"L",0,1,1,21,5200]], \
 #                   columns = list(["sailing_status", "port", "tug_cnt", "total_weight", "weight_level", "dist", "wind", "park", \
