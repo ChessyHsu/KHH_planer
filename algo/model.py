@@ -2,7 +2,7 @@
 """
 from enum import Enum, IntEnum
 from datetime import time, datetime, timedelta
-from .settings import SHIP_SPEED, TUG_SPEED, SYSTEM_TIME
+from algo.settings import SHIP_SPEED, TUG_SPEED, SYSTEM_TIME
 
 
 class Event(Enum):
