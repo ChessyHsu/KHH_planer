@@ -24,7 +24,7 @@ class WorkTimePrediction():
           hour: hour of the time
           avg_hp: average horsepower of the tug boat
     """
-    def __init__(self, df): 
+    def __init__(self): 
         with open(loc+'model_new/clf_1.pickle', 'rb') as f:
             self.clf1 = pickle.load(f)
         with open(loc+'model_new/clf_2.pickle', 'rb') as f:
@@ -46,7 +46,7 @@ class WorkTimePrediction():
         with open(loc+'model_new/reg_3_1.pickle', 'rb') as f:
             self.reg3_1 = pickle.load(f)
         
-        self.df = df
+        
         self.data = pd.DataFrame([[0]*58],\
                                  columns= list(['total_weight', 'weight_level', 'dist', 'wind', 'avg_hp', \
                                 "['port']_1", "['port']_2", "['tug_cnt']_1", "['tug_cnt']_2", "['tug_cnt']_3", \
@@ -68,7 +68,8 @@ class WorkTimePrediction():
         self.pr_col = ["dist", "weight_level", "total_weight", "wind", "avg_hp"]
         
     
-    def preprocessing(self):
+    def preprocessing(self, df):
+        self.df = df
         for i in self.pr_col:
             self.data.iloc[0][i] = self.df[i][0]
                                       
@@ -109,8 +110,8 @@ class WorkTimePrediction():
         
         return pred_reg
     
-    def run(self):
-        self.preprocessing()
+    def run(self, df):
+        self.preprocessing(df)
         pred_time = self.predict()
         # print(pred_time)
         return pred_time
