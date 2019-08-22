@@ -48,4 +48,4 @@ class Estimator():
         t_end = time.time()
         showdetails(simulator.tasks, algorithm.__name__.upper(), self.print_all)
         print("Time usage: {:.2f} secs".format(t_end - t_start))
-        ganttplot(simulator.tasks)
+        # ganttplot(simulator.tasks)
